@@ -1,0 +1,22 @@
+// This file uses three declaration types: 
+//    - app: Top-level configuration information about the app.
+//    - route: Describes which path each page should be accessible from. 
+//    - page: Defines a web page and the React component that gets rendered when the page is loaded. 
+
+app website {
+  wasp: {
+    version: "^0.13.2"
+  },
+  title: "Lexia" // Browser tab title. 
+}
+// To create more pages, just create another set of **page** and **route** declarations
+route RootRoute { path: "/", to: MainPage }
+page MainPage {
+  component: import { MainPage } from "@src/MainPage"
+}
+
+route HelloRoute { path: "/hello/:name", to: HelloPage }
+page HelloPage {
+  component: import { HelloPage } from "@src/HelloPage"
+}
+
